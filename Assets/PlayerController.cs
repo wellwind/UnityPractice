@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
 
     // UI
     public Text scoreText;
+
     public Text winText;
     public GameObject restartButton;
 
     private int score;
 
-
+    public void Start()
     {
         Speed = 5;
         score = 0;
@@ -30,11 +31,13 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
     }
 
+    public void FixedUpdate()
     {
         rigidBody.AddForce(new Vector3(0, -0.001f, 0));
         scoreText.text = String.Format("Score: {0}", score);
     }
 
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("star"))
         {

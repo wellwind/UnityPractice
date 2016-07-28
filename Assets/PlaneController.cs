@@ -16,11 +16,13 @@ public class PlaneController : MonoBehaviour
     private float rotationLimit;
 
     // Use this for initialization
+    public void Start()
     {
         rotationLimit = 30;
     }
 
     // Update is called once per frame
+    public void Update()
     {
         MoveHorizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal") * -1;
         MoveVertical = CrossPlatformInputManager.GetAxisRaw("Vertical");

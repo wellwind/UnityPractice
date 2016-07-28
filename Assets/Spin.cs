@@ -2,6 +2,7 @@
 
 public class Spin : MonoBehaviour
 {
+    public void Update()
     {
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
 
