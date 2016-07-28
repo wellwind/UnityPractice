@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
+
 public class PlayerController : MonoBehaviour
 {
     public float MoveHorizontal;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private int score;
 
-    void Start()
+
     {
         Speed = 5;
         score = 0;
@@ -29,17 +30,11 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
     }
 
-    void FixedUpdate()
     {
-        MoveHorizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-        MoveVertical = CrossPlatformInputManager.GetAxisRaw("Vertical");
-
-        rigidBody.AddForce(new Vector3(MoveHorizontal, 0, MoveVertical) * Speed);
-
+        rigidBody.AddForce(new Vector3(0, -0.001f, 0));
         scoreText.text = String.Format("Score: {0}", score);
     }
 
-    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("star"))
         {

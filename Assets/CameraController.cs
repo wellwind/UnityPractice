@@ -1,17 +1,17 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     public Vector3 relativePosition;
     public GameObject player;
 
-    void Start()
+    public void Start()
     {
         relativePosition = gameObject.transform.position - player.transform.position;
     }
 
-    void Update()
+    public void Update()
     {
         gameObject.transform.position = player.transform.position + relativePosition;
     }
